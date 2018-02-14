@@ -1,7 +1,8 @@
 # Jarvis - A Slackbot for Operations
 
 Jarvis is a Slack bot that can interact with MS SQL Server, Pagerduty, and JIRA.
-Connecting to Slack
+
+## Connecting to Slack
 
 In order to connect to Slack you have to first configure a bot integration. This will provide you with an API token. This token, as well as the bot name, must be passed in via envrionment variables SLACK_TOKEN and SLACK_BOT.
 
@@ -12,7 +13,7 @@ docker run \
   -d m82labs/jarvis
 ```
 
-# Limiting Plugins
+## Limiting Plugins
 
 If you only want to run specific plugins, you can list them in the PLUGINS environment variable. Current available plugins are: sql_status, jira, and pagerduty.
 ```
