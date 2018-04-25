@@ -133,7 +133,7 @@ def run(message, name, email):
         override_payload = { 'override' : { 'start' : start_date, 'end' : end_date,'user' : { 'id' : userid ,'type' : 'user_reference'}}}
 
         try:
-            headers = {"Authorization": "Token token=" + configData['api_key'],"Accept": "application/vnd.pagerduty+json;version=2", "content-type": "application/json"}
+            headers = {"Authorization": "Token token=" + os.environ["PD_API_KEY"],"Accept": "application/vnd.pagerduty+json;version=2", "content-type": "application/json"}
             r = requests.post('https://api.pagerduty.com/schedules/'+schedule+'/overrides', headers=headers, data=json.dumps(override_payload))
             override_start = datetime.datetime.strptime(start_date,'%Y-%m-%dT%H:%M:%SZ').replace(tzinfo=from_zone).astimezone(to_zone)
             override_end = datetime.datetime.strptime(end_date,'%Y-%m-%dT%H:%M:%SZ').replace(tzinfo=from_zone).astimezone(to_zone)
