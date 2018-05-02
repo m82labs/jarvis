@@ -68,7 +68,7 @@ def run(message,user,email):
 
         # Try to execute our query, if it fails, return the failure to Slack
         try:
-            with pymssql.connect(server,user,password,'master',login_timeout=2,timeout=15,appname="Jarvis",) as conn:
+            with pymssql.connect(server,user,password,'master',login_timeout=15,timeout=30,appname="Jarvis",) as conn:
                 with conn.cursor(as_dict=True) as cursor:
                     cursor.execute(sqlCmd)
                     for row in cursor:
